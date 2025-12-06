@@ -34,7 +34,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
+import javafx.scene.image.Image; // Đây là JavaFX Image
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -47,7 +47,7 @@ import javafx.stage.FileChooser;
 import javafx.util.Callback;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.*; // Đây là AWT
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
@@ -62,7 +62,6 @@ public class Controller implements EngineCallBack, LinkerCallBack {
     @FXML
     private Canvas canvas;
 
-    // [QUAN TRỌNG] Thêm AnchorPane để vẽ hiệu ứng animation đè lên Canvas
     @FXML
     private AnchorPane canvasPane;
 
@@ -918,7 +917,8 @@ public class Controller implements EngineCallBack, LinkerCallBack {
 
     @FXML
     public void pasteImageMenuClick(ActionEvent event) {
-        Image img = ClipboardUtils.getImage();
+        // [FIXED] Dùng java.awt.Image để tránh xung đột với javafx.scene.image.Image
+        java.awt.Image img = ClipboardUtils.getImage();
         if (img != null) {
             importFromBufferImage((BufferedImage) img);
         }

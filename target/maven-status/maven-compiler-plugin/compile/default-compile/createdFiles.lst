@@ -1,4 +1,5 @@
 com\sojourners\chess\controller\Controller$1$1.class
+com\sojourners\chess\util\MoveAnimator.class
 com\sojourners\chess\openbook\OpenBook$2.class
 com\sojourners\chess\util\HttpUtils.class
 com\sojourners\chess\model\LocalBook.class
