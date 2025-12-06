@@ -223,3 +223,48 @@
     -fx-border-color: -fx-neon-cyan;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 180, 216, 0.3), 5, 0, 0, 0);
 }
+/* =============================================================================
+   [BỔ SUNG] GIAO DIỆN ENGINE INFO (ĐẸP LUNG LINH)
+   Phần này giúp danh sách nước đi hiển thị rõ ràng, chuyên nghiệp
+   ============================================================================= */
+
+/* Căn chỉnh lại các dòng trong danh sách */
+.list-cell {
+    -fx-padding: 5px 10px;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent transparent rgba(0,0,0,0.05) transparent; /* Đường kẻ mờ ngăn cách */
+}
+
+/* Tiêu đề: Điểm số & Độ sâu (Font to, đậm) */
+.engine-info-title {
+    -fx-font-family: "Consolas", monospace; /* Font kiểu máy tính */
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+/* Điểm dương (Ưu thế) -> Màu Xanh */
+.score-positive {
+    -fx-text-fill: -fx-accent-color; 
+}
+
+/* Điểm âm (Thất thế) -> Màu Đỏ */
+.score-negative {
+    -fx-text-fill: #e81123; 
+}
+
+/* Nội dung nước đi (PV Lines) -> Màu đen dịu, font code */
+.engine-info-body {
+    -fx-font-family: "Consolas", monospace;
+    -fx-font-size: 13px;
+    -fx-text-fill: #444444;
+    -fx-opacity: 0.9;
+    -fx-padding: 2px 0 0 0;
+}
+
+/* Khi chọn một dòng -> Chữ chuyển sang màu trắng cho dễ đọc */
+.list-cell:selected .engine-info-title,
+.list-cell:selected .score-positive,
+.list-cell:selected .score-negative,
+.list-cell:selected .engine-info-body {
+    -fx-text-fill: white;
+}
