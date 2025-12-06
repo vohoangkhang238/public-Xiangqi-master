@@ -34,7 +34,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
+import javafx.scene.image.Image; // JavaFX Image
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -45,7 +45,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.util.Callback;
-import javafx.util.Duration;
 
 import javax.imageio.ImageIO;
 import java.awt.Desktop;
@@ -76,8 +75,8 @@ public class Controller implements EngineCallBack, LinkerCallBack {
     private Label timeShowLabel;
     @FXML
     private SplitPane splitPane;
-    @FXML
-    private SplitPane splitPane2;
+    
+    // [ĐÃ XÓA] splitPane2 không còn dùng nữa vì đã gộp tab
 
     @FXML
     private ListView<ThinkData> listView;
@@ -667,25 +666,22 @@ public class Controller implements EngineCallBack, LinkerCallBack {
                             setGraphic(null);
                             setText(null);
                         } else {
-                            VBox box = new VBox(2); // Khoảng cách dòng nhỏ
+                            VBox box = new VBox(2); 
 
-                            // Dòng 1: Điểm số & Độ sâu
                             Label title = new Label(item.getTitle());
-                            title.getStyleClass().add("engine-info-title"); // CSS class chung
+                            title.getStyleClass().add("engine-info-title"); 
                             
-                            // Tô màu dựa trên điểm số (bằng CSS class thay vì Hardcode)
                             if (item.getScore() >= 0) {
-                                title.getStyleClass().add("score-positive"); // Class cho điểm dương
+                                title.getStyleClass().add("score-positive"); 
                             } else {
-                                title.getStyleClass().add("score-negative"); // Class cho điểm âm
+                                title.getStyleClass().add("score-negative"); 
                             }
                             box.getChildren().add(title);
 
-                            // Dòng 2: Nước đi (PV)
                             Label body = new Label(item.getBody());
                             body.setWrapText(true);
                             body.setMaxWidth(listView.getWidth() - 25);
-                            body.getStyleClass().add("engine-info-body"); // CSS class cho nội dung
+                            body.getStyleClass().add("engine-info-body"); 
                             
                             box.getChildren().add(body);
                             setGraphic(box);
@@ -694,7 +690,6 @@ public class Controller implements EngineCallBack, LinkerCallBack {
                 };
             }
         });
-        // ----------------------------------------
 
         setButtonTips();
         initChessBoard();
@@ -786,7 +781,7 @@ public class Controller implements EngineCallBack, LinkerCallBack {
         borderPane.setPrefWidth(prop.getStageWidth());
         borderPane.setPrefHeight(prop.getStageHeight());
         splitPane.setDividerPosition(0, prop.getSplitPos());
-        splitPane2.setDividerPosition(0, prop.getSplitPos2());
+        // [ĐÃ XÓA] splitPane2
         menuOfTopWindow.setSelected(prop.isTopWindow());
         App.topWindow(prop.isTopWindow());
     }
@@ -1193,7 +1188,7 @@ public class Controller implements EngineCallBack, LinkerCallBack {
         prop.setStageWidth(borderPane.getWidth());
         prop.setStageHeight(borderPane.getHeight());
         prop.setSplitPos(splitPane.getDividerPositions()[0]);
-        prop.setSplitPos2(splitPane2.getDividerPositions()[0]);
+        // [ĐÃ XÓA] Lưu splitPos2
         prop.save();
         Platform.exit();
     }
