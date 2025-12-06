@@ -14,7 +14,6 @@ com\sojourners\chess\linker\WindowsGraphLinker.class
 com\sojourners\chess\openbook\OpenBook.class
 com\sojourners\chess\controller\Controller$1.class
 com\sojourners\chess\model\ManualRecord.class
-com\sojourners\chess\controller\Controller$4.class
 com\sojourners\chess\board\ChessBoard$Point.class
 com\sojourners\chess\controller\BookSettingController$1.class
 com\sojourners\chess\App.class
@@ -35,7 +34,6 @@ com\sojourners\chess\board\ChessBoard$BoardStyle.class
 com\sojourners\chess\Main.class
 com\sojourners\chess\controller\LinkSettingController.class
 com\sojourners\chess\board\BaseBoardRender.class
-com\sojourners\chess\controller\Controller$3.class
 com\sojourners\chess\controller\EngineAddController$1.class
 com\sojourners\chess\enginee\Engine$AnalysisModel.class
 com\sojourners\chess\board\CustomBoardRender.class
@@ -66,7 +64,6 @@ com\sojourners\chess\jna\User32Extra.class
 com\sojourners\chess\board\BoardRender.class
 com\sojourners\chess\controller\EngineAddController$2$1$1.class
 com\sojourners\chess\config\Properties.class
-com\sojourners\chess\controller\Controller$5.class
 com\sojourners\chess\util\MathUtils.class
 com\sojourners\chess\util\DialogUtils.class
 com\sojourners\chess\openbook\CloudOpenBook.class
@@ -78,7 +75,6 @@ com\sojourners\chess\linker\LinuxGraphLinker.class
 com\sojourners\chess\openbook\OpenBookManager.class
 com\sojourners\chess\util\StringUtils.class
 com\sojourners\chess\board\DefaultBoardRender.class
-com\sojourners\chess\controller\Controller$6.class
 com\sojourners\chess\yolo\Yolo5Model.class
 com\sojourners\chess\model\EngineConfig.class
 com\sojourners\chess\util\ClipboardUtils.class

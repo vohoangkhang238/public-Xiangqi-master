@@ -151,29 +151,10 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0">
                      <children>
-                        <SplitPane fx:id="splitPane2" dividerPositions="0.6" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <SplitPane fx:id="splitPane2" dividerPositions="0.4" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <items>
+                             
                              <AnchorPane minHeight="0.0" minWidth="0.0">
-                                 <children>
-                                    <BorderPane fx:id="listViewPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <center>
-                                          <ListView fx:id="listView" BorderPane.alignment="CENTER" />
-                                       </center>
-                                       <top>
-                                           <ToolBar prefHeight="30.0" BorderPane.alignment="CENTER">
-                                             <items>
-                                                <Label text="Engine" />
-                                                <ComboBox fx:id="engineComboBox" editable="true" prefHeight="22.0" prefWidth="95.0" />
-                                                <ComboBox fx:id="threadComboBox" editable="true" prefHeight="22.0" prefWidth="60.0" />
-                                                <ComboBox fx:id="hashComboBox" editable="true" prefHeight="22.0" prefWidth="65.0" />
-                                                <Label text="MB" />
-                                             </items>
-                                           </ToolBar>
-                                       </top>
-                                    </BorderPane>
-                                 </children>
-                             </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0">
                                  <children>
                                    <TabPane side="BOTTOM" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <tabs>
@@ -231,6 +212,28 @@
                                     </TabPane>
                                  </children>
                             </AnchorPane>
+
+                            <AnchorPane minHeight="0.0" minWidth="0.0">
+                                 <children>
+                                    <BorderPane fx:id="listViewPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <center>
+                                          <ListView fx:id="listView" BorderPane.alignment="CENTER" />
+                                       </center>
+                                       <top>
+                                           <ToolBar prefHeight="30.0" BorderPane.alignment="CENTER">
+                                             <items>
+                                                <Label text="Engine" />
+                                                <ComboBox fx:id="engineComboBox" editable="true" prefHeight="22.0" prefWidth="95.0" />
+                                                <ComboBox fx:id="threadComboBox" editable="true" prefHeight="22.0" prefWidth="60.0" />
+                                                <ComboBox fx:id="hashComboBox" editable="true" prefHeight="22.0" prefWidth="65.0" />
+                                                <Label text="MB" />
+                                             </items>
+                                           </ToolBar>
+                                       </top>
+                                    </BorderPane>
+                                 </children>
+                             </AnchorPane>
+
                           </items>
                         </SplitPane>
                      </children>
