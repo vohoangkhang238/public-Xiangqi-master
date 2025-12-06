@@ -34,10 +34,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -59,6 +61,10 @@ public class Controller implements EngineCallBack, LinkerCallBack {
 
     @FXML
     private Canvas canvas;
+
+    // [QUAN TRỌNG] Thêm AnchorPane để vẽ hiệu ứng animation đè lên Canvas
+    @FXML
+    private AnchorPane canvasPane;
 
     @FXML
     private BorderPane borderPane;
@@ -1171,16 +1177,84 @@ public class Controller implements EngineCallBack, LinkerCallBack {
             ChessBoard.Step s = board.stepForBoard(first);
 
             Platform.runLater(() -> {
-                board.move(s.getFirst().getX(), s.getFirst().getY(), s.getSecond().getX(), s.getSecond().getY());
-                board.setTip(second, null);
+                // [TÍNH NĂNG MỚI] Hiệu ứng di chuyển mượt mà
+                // 1. Lấy thông tin quân cờ và tọa độ
+                char piece = board.getBoard()[s.getFirst().getY()][s.getFirst().getX()];
+                Image pieceImage = getPieceImage(piece);
+                
+                double startX = getPixelX(s.getFirst().getX());
+                double startY = getPixelY(s.getFirst().getY());
+                double endX = getPixelX(s.getSecond().getX());
+                double endY = getPixelY(s.getSecond().getY());
+                
+                // Tính kích thước quân cờ tương đối
+                double pieceSize = (canvas.getWidth() - 2 * (canvas.getWidth() / 20.0)) / 9.0;
 
-                goCallBack(first);
+                // 2. Chạy Animation
+                MoveAnimator.animateMove(canvasPane, pieceImage, startX, startY, endX, endY, pieceSize, () -> {
+                    // 3. Sau khi chạy xong mới thực hiện logic di chuyển bàn cờ thật
+                    board.move(s.getFirst().getX(), s.getFirst().getY(), s.getSecond().getX(), s.getSecond().getY());
+                    board.setTip(second, null);
+                    goCallBack(first);
+                });
             });
 
             if (linkMode.getValue()) {
                 trickAutoClick(s);
             }
         }
+    }
+    
+    // [HÀM MỚI] Lấy hình ảnh quân cờ từ resources
+    private Image getPieceImage(char piece) {
+        String name = "";
+        switch (piece) {
+            case 'r': name = "rr"; break;
+            case 'n': name = "rn"; break;
+            case 'b': name = "rb"; break;
+            case 'a': name = "ra"; break;
+            case 'k': name = "rk"; break;
+            case 'c': name = "rc"; break;
+            case 'p': name = "rp"; break;
+            
+            case 'R': name = "br"; break;
+            case 'N': name = "bn"; break;
+            case 'B': name = "bb"; break;
+            case 'A': name = "ba"; break;
+            case 'K': name = "bk"; break;
+            case 'C': name = "bc"; break;
+            case 'P': name = "bp"; break;
+            default: return null;
+        }
+        return new Image(getClass().getResourceAsStream("/ui/" + name + ".png"));
+    }
+
+    // [HÀM MỚI] Tính tọa độ Pixel X trên Canvas
+    private double getPixelX(int x) {
+        // Giả sử bàn cờ có padding 10px mỗi bên (cần điều chỉnh nếu ChessBoard khác)
+        // Logic: Padding + (x * cellSize)
+        // Vì ChessBoard tự vẽ nên ta ước lượng dựa trên kích thước Canvas
+        double width = canvas.getWidth();
+        double padding = 5; // Căn chỉnh lề
+        double gridSize = (width - 2 * padding) / 9.0;
+        
+        // Nếu bàn cờ bị đảo ngược
+        if (isReverse.getValue()) {
+            x = 8 - x;
+        }
+        return padding + x * gridSize;
+    }
+
+    // [HÀM MỚI] Tính tọa độ Pixel Y trên Canvas
+    private double getPixelY(int y) {
+        double height = canvas.getHeight();
+        double padding = 5;
+        double gridSize = (height - 2 * padding) / 10.0;
+        
+        if (isReverse.getValue()) {
+            y = 9 - y;
+        }
+        return padding + y * gridSize;
     }
 
     @Override
