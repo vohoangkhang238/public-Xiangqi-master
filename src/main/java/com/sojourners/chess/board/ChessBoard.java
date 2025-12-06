@@ -13,6 +13,56 @@ import java.util.Map;
 /**
  * 棋盘
  */
+/**
+ * Tạo FEN Cờ Úp (Jieqi FEN) từ trạng thái bàn cờ và kho quân úp.
+ * @param board Mảng char[][] trạng thái bàn cờ.
+ * @param pool Map<Character, Integer> kho quân úp hiện tại.
+ * @param redGo Lượt đi của Đỏ (true) hay Đen (false).
+ * @return Jieqi FEN string.
+ */
+public static String fenCodeJieqi(char[][] board, Map<Character, Integer> pool, boolean redGo) {
+    StringBuffer sb = new StringBuffer();
+    // 1. Tạo Board FEN
+    for (int i = 0; i < board.length; i++) {
+        int count = 0;
+        for (int j = 0; j < board[0].length; j++) {
+            if (board[i][j] != ' ') {
+                if (count != 0) {
+                    sb.append(count);
+                    count = 0;
+                }
+                // Sử dụng 'x' (lowercase) cho quân úp trong FEN
+                char pieceChar = (board[i][j] == 'X') ? 'x' : board[i][j];
+                sb.append(pieceChar);
+            } else {
+                count++;
+            }
+        }
+        if (count != 0) {
+            sb.append(count);
+        }
+        if (i != board.length - 1) {
+            sb.append("/");
+        }
+    }
+    
+    // 2. Thêm Turn
+    sb.append(" ").append(redGo ? "w" : "b");
+
+    // 3. Thêm Pool String
+    sb.append(" ");
+    char[] fenOrder = {'R', 'r', 'N', 'n', 'B', 'b', 'A', 'a', 'C', 'c', 'P', 'p'};
+    for (char p : fenOrder) {
+        int count = pool.getOrDefault(p, 0);
+        if (count > 0) {
+            sb.append(p).append(count);
+        }
+    }
+    
+    // 4. Thêm các trường còn lại (mặc định)
+    sb.append(" 0 1"); 
+    return sb.toString();
+}
 public class ChessBoard {
 
     private static BaseBoardRender boardRender;

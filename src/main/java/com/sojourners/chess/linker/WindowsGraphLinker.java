@@ -11,6 +11,44 @@ import com.sun.jna.platform.win32.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+// ... (Các import và trường hiện có)
+
+public class WindowsGraphLinker extends AbstractGraphLinker {
+    // ... 
+    
+    @Override
+    public boolean move(String move) {
+        if (move == null || move.length() < 4) {
+            return false;
+        }
+        
+        int x1 = move.charAt(0) - 'a';
+        int y1 = 9 - (move.charAt(1) - '0');
+        int x2 = move.charAt(2) - 'a';
+        int y2 = 9 - (move.charAt(3) - '0');
+        
+        // Nếu nước đi là lật quân (e.g., "a1a1R", move.length() == 5 và tọa độ from=to)
+        if (move.length() >= 5 && x1 == x2 && y1 == y2) {
+            // Nước đi Lật Quân: Chỉ cần click 1 lần tại vị trí (x1, y1)
+            return clickPosition(x1, y1);
+        }
+        
+        // Nước đi thường (2 lần click)
+        if (clickPosition(x1, y1)) {
+            try {
+                // Sử dụng thời gian trễ của linkSetting
+                Thread.sleep(linkSetting.getMouseGo() > 0 ? linkSetting.getMouseGo() : 50); 
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            return clickPosition(x2, y2);
+        }
+        return false;
+    }
+    
+    // ... (Các phương thức khác)
+}
+
 public class WindowsGraphLinker extends AbstractGraphLinker implements MouseListenCallBack {
 
     private WinDef.HWND hwnd;

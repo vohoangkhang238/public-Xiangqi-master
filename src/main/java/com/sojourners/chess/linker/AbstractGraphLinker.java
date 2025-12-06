@@ -12,6 +12,35 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sojourners.chess.yolo.YoloJieqiModel; 
+// ... (Các import khác)
+
+public abstract class AbstractGraphLinker implements GraphLinker, LinkerCallBack {
+
+    // ... (Các trường hiện có)
+    private boolean isJieqiMode; // Thêm trường này
+
+    @Override
+    public void start(boolean redGo, boolean autoMove, boolean watch, boolean bgMode, double maxScore, boolean isReverse) {
+        // ... (Logic khởi tạo hiện có)
+        
+        // Thêm logic tải mô hình phù hợp
+        if (isJieqiMode) {
+            this.model = new YoloJieqiModel(); 
+        } else {
+            this.model = new Yolo11Model(); // Giữ nguyên cho Cờ Tướng
+        }
+
+        // ... (Tiếp tục logic hiện có)
+    }
+
+    // Thêm setter để bật/tắt chế độ Cờ Úp
+    public void setJieqiMode(boolean isJieqiMode) {
+        this.isJieqiMode = isJieqiMode;
+    }
+    
+    // ... (Các phương thức khác)
+}
 
 public abstract class AbstractGraphLinker implements GraphLinker, Runnable {
 

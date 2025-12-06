@@ -3,6 +3,25 @@ package com.sojourners.chess.model;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 
+public class EngineConfig {
+    // ... các trường hiện có
+    
+    private String engineType; // Thêm trường này
+
+    public static final String TYPE_XIANGQI = "XIANGQI";
+    public static final String TYPE_JIEQI = "JIEQI";
+
+    // ... (Thêm getter và setter cho engineType)
+
+    public String getEngineType() {
+        return engineType;
+    }
+
+    public void setEngineType(String engineType) {
+        this.engineType = engineType;
+    }
+}
+
 public class EngineConfig implements Serializable {
 
     private static final long serialVersionUID = 1323134234;

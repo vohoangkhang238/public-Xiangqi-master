@@ -57,6 +57,67 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.sojourners.chess.linker.AbstractGraphLinker;
+import com.sojourners.chess.model.JieqiPool; // Import lớp mới
+// ...
+
+public class Controller implements Initializable {
+    // ... (Khai báo các biến FXML hiện có)
+
+    private boolean isJieqiMode = false;
+    private JieqiPool jieqiPool;
+    
+    // Giả định bạn thêm một nút/MenuItem trong app.fxml với fx:id="jieqiModeBtn"
+    // @FXML private Button jieqiModeBtn; 
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // ... (Khởi tạo hiện có)
+        this.jieqiPool = new JieqiPool();
+    }
+
+    // Phương thức chuyển đổi chế độ chơi (Cần được gắn với một nút/menu trong FXML)
+    @FXML
+    public void handleToggleJieqiMode() {
+        this.isJieqiMode = !this.isJieqiMode;
+        // Logic cập nhật GUI (Ví dụ: thay đổi văn bản/màu nền của nút)
+        
+        if (this.isJieqiMode) {
+            this.jieqiPool = new JieqiPool(); // Reset Pool
+            // Có thể cần reset bàn cờ về trạng thái Cờ Úp bắt đầu
+            // chessBoard.setNewBoard("rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR w - - 0 1"); // FEN Cờ Tướng
+        } 
+    }
+
+    // Sửa đổi phương thức startLink để truyền thông tin chế độ Cờ Úp
+    @FXML
+    public void startLink() {
+        // ... (Logic kiểm tra điều kiện hiện có)
+        
+        if (graphLinker instanceof AbstractGraphLinker) {
+            ((AbstractGraphLinker) graphLinker).setJieqiMode(isJieqiMode); // Set chế độ
+        }
+        
+        // ... (Gọi graphLinker.start)
+    }
+    
+    // Cập nhật hàm này để gửi FEN Cờ Úp khi ở chế độ Jieqi
+    public void sendFenToEngine(boolean redGo) {
+        // ... (Lấy EngineConfig)
+        
+        String fen;
+        if (isJieqiMode) {
+            // Bắt buộc phải cập nhật Pool trước khi tạo FEN
+            this.jieqiPool.updatePoolFromBoard(chessBoard.getBoard()); 
+            fen = ChessBoard.fenCodeJieqi(chessBoard.getBoard(), jieqiPool.getCurrentPool(), redGo);
+        } else {
+            fen = chessBoard.fenCode(redGo);
+        }
+
+        // ... (Gửi lệnh 'position fen ' + fen + '...' đến Engine)
+    }
+}
+
 public class Controller implements EngineCallBack, LinkerCallBack {
 
     @FXML
