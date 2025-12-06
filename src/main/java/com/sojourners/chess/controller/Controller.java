@@ -577,7 +577,7 @@ public class Controller implements EngineCallBack, LinkerCallBack {
         Desktop desktop = Desktop.getDesktop();
         if (Desktop.isDesktopSupported() && desktop.isSupported(Desktop.Action.BROWSE)) {
             try {
-                URI uri = new URI("https://github.com/sojourners/public-Xiangqi");
+                URI uri = new URI("[https://github.com/sojourners/public-Xiangqi](https://github.com/sojourners/public-Xiangqi)");
                 desktop.browse(uri);
             } catch (Exception e1) {
                 e1.printStackTrace();
@@ -1252,5 +1252,4 @@ public class Controller implements EngineCallBack, LinkerCallBack {
             engineGo();
         }
     }
-}
 }
