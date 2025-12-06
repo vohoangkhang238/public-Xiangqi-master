@@ -21,92 +21,91 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="borderPane" minHeight="600.0" minWidth="500.0" prefHeight="950.0" prefWidth="600.0" style="-fx-background-color: -fx-base-color;" stylesheets="@../style/app.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sojourners.chess.controller.Controller">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Game">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#newButtonClick" text="New Game" />
-                  <MenuItem mnemonicParsing="false" onAction="#editChessBoardClick" text="Edit Board" />
-                  <MenuItem mnemonicParsing="false" onAction="#copyButtonClick" text="Copy FEN" />
-                  <MenuItem mnemonicParsing="false" onAction="#pasteButtonClick" text="Paste FEN" />
-                  <MenuItem mnemonicParsing="false" onAction="#copyImageMenuClick" text="Copy Image" />
-                  <MenuItem mnemonicParsing="false" onAction="#pasteImageMenuClick" text="Paste Image" />
-                  <MenuItem mnemonicParsing="false" onAction="#importImageMenuClick" text="Import Image" />
-                  <MenuItem mnemonicParsing="false" onAction="#exportImageMenuClick" text="Export Image" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Book">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#bookSettingButtonClick" text="Settings" />
-                  <MenuItem mnemonicParsing="false" onAction="#localBookManageButtonClick" text="Manage" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Engine">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#engineManageClick" text="Manage" />
-                  <MenuItem mnemonicParsing="false" onAction="#timeSettingButtonClick" text="Time Settings" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Connect">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#linkSettingClick" text="Parameters" />
-                  <CheckMenuItem fx:id="menuOfLinkBackMode" mnemonicParsing="false" onAction="#linkBackModeChecked" text="Background Mode" />
-                  <CheckMenuItem fx:id="menuOfLinkAnimation" mnemonicParsing="false" onAction="#linkAnimationChecked" text="Animation" />
-               </items>
-            </Menu>
-          <Menu mnemonicParsing="false" text="Settings">
-            <items>
-                  <CheckMenuItem fx:id="menuOfStepTip" mnemonicParsing="false" onAction="#stepTipChecked" text="Step Tip" />
-                  <CheckMenuItem fx:id="menuOfStepSound" mnemonicParsing="false" onAction="#stepSoundClick" text="Sound" />
-                  <CheckMenuItem fx:id="menuOfShowNumber" mnemonicParsing="false" onAction="#showNumberClick" text="Show Lines" />
-                  <CheckMenuItem fx:id="menuOfTopWindow" mnemonicParsing="false" onAction="#topWindowClick" text="Always on Top" />
-                  <CheckMenuItem fx:id="menuOfShowStatus" mnemonicParsing="false" onAction="#showStatusBarClick" text="Status Bar" />
-                  <Menu mnemonicParsing="false" text="Board Style">
-                     <items>
-                        <RadioMenuItem fx:id="menuOfDefaultBoard" mnemonicParsing="false" onAction="#boardStyleSelected" text="Default">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="boardStyle1" />
-                           </toggleGroup>
-                        </RadioMenuItem>
-                        <RadioMenuItem fx:id="menuOfCustomBoard" mnemonicParsing="false" onAction="#boardStyleSelected" text="Red/Black" toggleGroup="$boardStyle1" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Board Size">
-                    <items>
-                        <RadioMenuItem fx:id="menuOfSmallBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Small">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="boardStyle" />
-                           </toggleGroup>
-                        </RadioMenuItem>
-                        <RadioMenuItem fx:id="menuOfMiddleBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Medium" toggleGroup="$boardStyle" />
-                        <RadioMenuItem fx:id="menuOfBigBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Large" toggleGroup="$boardStyle" />
-                        <RadioMenuItem fx:id="menuOfLargeBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Extra Large" toggleGroup="$boardStyle" />
-                        <RadioMenuItem fx:id="menuOfAutoFitBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Auto Fit" toggleGroup="$boardStyle" />
-                    </items>
-                  </Menu>
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#homeClick" text="Home" />
-                  <MenuItem mnemonicParsing="false" onAction="#aboutClick" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
-   <center>
-      <BorderPane BorderPane.alignment="CENTER">
-         <top>
-            <ToolBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
+          <MenuBar>
+            <menus>
+              <Menu mnemonicParsing="false" text="File">
+                <items>
+                  <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
+                </items>
+              </Menu>
+                <Menu mnemonicParsing="false" text="Game">
+                   <items>
+                      <MenuItem mnemonicParsing="false" onAction="#newButtonClick" text="New Game" />
+                      <MenuItem mnemonicParsing="false" onAction="#editChessBoardClick" text="Edit Board" />
+                      <MenuItem mnemonicParsing="false" onAction="#copyButtonClick" text="Copy FEN" />
+                      <MenuItem mnemonicParsing="false" onAction="#pasteButtonClick" text="Paste FEN" />
+                      <MenuItem mnemonicParsing="false" onAction="#copyImageMenuClick" text="Copy Image" />
+                      <MenuItem mnemonicParsing="false" onAction="#pasteImageMenuClick" text="Paste Image" />
+                      <MenuItem mnemonicParsing="false" onAction="#importImageMenuClick" text="Import Image" />
+                      <MenuItem mnemonicParsing="false" onAction="#exportImageMenuClick" text="Export Image" />
+                   </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Book">
+                   <items>
+                      <MenuItem mnemonicParsing="false" onAction="#bookSettingButtonClick" text="Settings" />
+                      <MenuItem mnemonicParsing="false" onAction="#localBookManageButtonClick" text="Manage" />
+                   </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Engine">
+                   <items>
+                      <MenuItem mnemonicParsing="false" onAction="#engineManageClick" text="Manage" />
+                      <MenuItem mnemonicParsing="false" onAction="#timeSettingButtonClick" text="Time Settings" />
+                   </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Connect">
+                   <items>
+                      <MenuItem mnemonicParsing="false" onAction="#linkSettingClick" text="Parameters" />
+                      <CheckMenuItem fx:id="menuOfLinkBackMode" mnemonicParsing="false" onAction="#linkBackModeChecked" text="Background Mode" />
+                      <CheckMenuItem fx:id="menuOfLinkAnimation" mnemonicParsing="false" onAction="#linkAnimationChecked" text="Animation" />
+                   </items>
+                </Menu>
+              <Menu mnemonicParsing="false" text="Settings">
+                <items>
+                      <CheckMenuItem fx:id="menuOfStepTip" mnemonicParsing="false" onAction="#stepTipChecked" text="Step Tip" />
+                      <CheckMenuItem fx:id="menuOfStepSound" mnemonicParsing="false" onAction="#stepSoundClick" text="Sound" />
+                      <CheckMenuItem fx:id="menuOfShowNumber" mnemonicParsing="false" onAction="#showNumberClick" text="Show Lines" />
+                      <CheckMenuItem fx:id="menuOfTopWindow" mnemonicParsing="false" onAction="#topWindowClick" text="Always on Top" />
+                      <CheckMenuItem fx:id="menuOfShowStatus" mnemonicParsing="false" onAction="#showStatusBarClick" text="Status Bar" />
+                      <Menu mnemonicParsing="false" text="Board Style">
+                         <items>
+                            <RadioMenuItem fx:id="menuOfDefaultBoard" mnemonicParsing="false" onAction="#boardStyleSelected" text="Default">
+                               <toggleGroup>
+                                  <ToggleGroup fx:id="boardStyle1" />
+                               </toggleGroup>
+                            </RadioMenuItem>
+                            <RadioMenuItem fx:id="menuOfCustomBoard" mnemonicParsing="false" onAction="#boardStyleSelected" text="Red/Black" toggleGroup="$boardStyle1" />
+                         </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Board Size">
+                        <items>
+                            <RadioMenuItem fx:id="menuOfSmallBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Small">
+                               <toggleGroup>
+                                  <ToggleGroup fx:id="boardStyle" />
+                               </toggleGroup>
+                            </RadioMenuItem>
+                            <RadioMenuItem fx:id="menuOfMiddleBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Medium" toggleGroup="$boardStyle" />
+                            <RadioMenuItem fx:id="menuOfBigBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Large" toggleGroup="$boardStyle" />
+                            <RadioMenuItem fx:id="menuOfLargeBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Extra Large" toggleGroup="$boardStyle" />
+                            <RadioMenuItem fx:id="menuOfAutoFitBoard" mnemonicParsing="false" onAction="#boardSizeSelected" text="Auto Fit" toggleGroup="$boardStyle" />
+                        </items>
+                      </Menu>
+                </items>
+              </Menu>
+              <Menu mnemonicParsing="false" text="Help">
+                <items>
+                  <MenuItem mnemonicParsing="false" onAction="#homeClick" text="Home" />
+                      <MenuItem mnemonicParsing="false" onAction="#aboutClick" text="About" />
+                </items>
+              </Menu>
+            </menus>
+          </MenuBar>
+          
+          <ToolBar minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0">
               <items>
                 <Button fx:id="newButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#newButtonClick" style="-fx-background-image: url('/image/file-plus.png');" text="New">
                      <opaqueInsets>
@@ -117,22 +116,16 @@
                   <Separator orientation="VERTICAL" />
                   <Button fx:id="backButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#regretButtonClick" style="-fx-background-image: url('/image/back.png');" text="Back" />
                   <Button fx:id="reverseButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#reverseButtonClick" style="-fx-background-image: url('/image/reverse.png');" text="Flip" />
-                  <Separator orientation="VERTICAL" />
-                  <Button fx:id="blackButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#blackButtonClick" style="-fx-background-image: url('/image/robotblack.png');" text="Black" />
-                  <Button fx:id="redButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#redButtonClick" style="-fx-background-image: url('/image/robotred.png');" text="Red" />
-                  <Button fx:id="analysisButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#analysisButtonClick" style="-fx-background-image: url('/image/lightbulb.png');" text="Hint" />
-                  <Button fx:id="immediateButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#immediateButtonClick" style="-fx-background-image: url('/image/goim.png');" text="Move Now" />
-                  <Button fx:id="bookSwitchButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#bookSwitchButtonClick" style="-fx-background-image: url('/image/cloud.png');" text="Book" />
-                  <Separator orientation="VERTICAL" />
-                  <ComboBox fx:id="linkComboBox" editable="true" prefHeight="22.0" prefWidth="89.0" />
-                  <Button fx:id="linkButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#linkButtonClick" style="-fx-background-image: url('/image/link.png');" text="Connect" />
               </items>
-            </ToolBar>
-         </top>
+          </ToolBar>
+      </VBox>
+   </top>
+   
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
          <center>
-            <SplitPane fx:id="splitPane" dividerPositions="0.55" orientation="VERTICAL" BorderPane.alignment="CENTER">
+            <SplitPane fx:id="splitPane" dividerPositions="0.6" orientation="VERTICAL" BorderPane.alignment="CENTER">
               <items>
-                
                 <AnchorPane fx:id="canvasPane" minHeight="0.0" minWidth="0.0">
                    <children>
                         <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -208,7 +201,7 @@
                                  </content>
                              </Tab>
                              
-                            <Tab text="Open Book">
+                            <Tab text="Book">
                               <content>
                                     <BorderPane>
                                        <center>
@@ -237,4 +230,21 @@
          </center>
       </BorderPane>
    </center>
+   
+   <bottom>
+      <ToolBar prefHeight="50.0" BorderPane.alignment="CENTER">
+        <items>
+            <Button fx:id="blackButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#blackButtonClick" style="-fx-background-image: url('/image/robotblack.png');" text="Black" />
+            <Button fx:id="redButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#redButtonClick" style="-fx-background-image: url('/image/robotred.png');" text="Red" />
+            <Separator orientation="VERTICAL" />
+            <Button fx:id="analysisButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#analysisButtonClick" style="-fx-background-image: url('/image/lightbulb.png');" text="Hint" />
+            <Button fx:id="immediateButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#immediateButtonClick" style="-fx-background-image: url('/image/goim.png');" text="Move Now" />
+            <Button fx:id="bookSwitchButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#bookSwitchButtonClick" style="-fx-background-image: url('/image/cloud.png');" text="Book" />
+            <Separator orientation="VERTICAL" />
+            <ComboBox fx:id="linkComboBox" editable="true" prefHeight="22.0" prefWidth="89.0" />
+            <Button fx:id="linkButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#linkButtonClick" style="-fx-background-image: url('/image/link.png');" text="Connect" />
+        </items>
+      </ToolBar>
+   </bottom>
+   
 </BorderPane>
