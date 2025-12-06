@@ -1,0 +1,225 @@
+/* =============================================================================
+   GIAO DIỆN CYBER-WHITE (SÁNG - ĐỘNG - CÔNG NGHỆ)
+   Phong cách: Iron Man Stark Tech / Clean / Animated
+   ============================================================================= */
+
+/* === CẤU HÌNH MÀU SẮC === */
+* {
+    -fx-base-color: #f0f4f8;       /* Nền trắng xanh nhẹ */
+    -fx-panel-color: #ffffff;      /* Khung trắng tinh */
+    
+    -fx-neon-cyan: #00b4d8;        /* Màu Cyan công nghệ (đậm hơn để dễ đọc) */
+    -fx-neon-blue: #0077b6;        /* Xanh dương đậm */
+    
+    -fx-text-main: #1a1a1a;        /* Chữ đen rõ nét */
+    -fx-text-data: #023e8a;        /* Chữ số liệu (Xanh đậm) */
+    
+    -fx-tech-border: #90e0ef;      /* Viền phát sáng nhẹ */
+    
+    /* Font số liệu kiểu máy tính */
+    -fx-font-family: "Consolas", "Segoe UI", monospace;
+    -fx-font-size: 14px;
+}
+
+.root {
+    -fx-background-color: -fx-base-color;
+    -fx-text-fill: -fx-text-main;
+}
+
+/* === MENU BAR (Thanh Menu) === */
+.menu-bar {
+    -fx-background-color: -fx-panel-color;
+    -fx-border-color: transparent transparent -fx-tech-border transparent;
+    -fx-border-width: 2px;
+    -fx-padding: 5px 15px;
+    /* Đổ bóng 3D */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 180, 216, 0.15), 10, 0, 0, 4);
+}
+
+.menu-bar .label {
+    -fx-text-fill: -fx-neon-blue;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+.menu-item:focused {
+    -fx-background-color: -fx-neon-cyan;
+}
+.menu-item:focused .label {
+    -fx-text-fill: white;
+}
+
+/* === TOOLBAR (Thanh công cụ) === */
+.tool-bar {
+    -fx-background-color: -fx-base-color;
+    -fx-border-color: transparent;
+    -fx-padding: 10px;
+    -fx-spacing: 15px;
+}
+
+/* === NÚT BẤM (BUTTONS) - HIỆU ỨNG NỔI === */
+.button {
+    -fx-background-color: -fx-panel-color;
+    -fx-text-fill: -fx-text-main;
+    
+    /* Viền Cyan công nghệ */
+    -fx-border-color: -fx-tech-border;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    
+    -fx-cursor: hand;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    
+    /* Icon đen nằm giữa */
+    -fx-background-size: 22px 22px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    
+    /* Hiệu ứng chuyển động (Animation) */
+    /* Khi rê chuột vào, nút sẽ biến đổi trong 0.3 giây */
+    -fx-transition: -fx-background-color 0.3s, -fx-effect 0.3s, -fx-scale-x 0.2s, -fx-scale-y 0.2s;
+}
+
+.button:hover {
+    /* Rê chuột: Nút sáng lên + Viền đậm + Phóng to */
+    -fx-background-color: white;
+    -fx-border-color: -fx-neon-cyan;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 180, 216, 0.4), 15, 0, 0, 0); /* Glow Cyan */
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.button:pressed {
+    /* Nhấn: Xanh đậm */
+    -fx-background-color: -fx-neon-cyan;
+    -fx-text-fill: white;
+    -fx-effect: innerShadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* === BẢNG DỮ LIỆU (MOVE LIST) - HIỆU ỨNG DATA STREAM === */
+/* Phần này quan trọng nhất: Tạo cảm giác dữ liệu đang chạy */
+
+.table-view, .list-view {
+    -fx-background-color: -fx-panel-color;
+    -fx-table-cell-border-color: transparent;
+    -fx-border-color: -fx-tech-border;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    
+    /* Bóng đổ nhẹ vào trong như màn hình lõm */
+    -fx-effect: innerShadow(three-pass-box, rgba(0, 180, 216, 0.1), 10, 0, 0, 0);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #caf0f8; /* Header màu Cyan nhạt */
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: -fx-neon-cyan;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -fx-neon-blue;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* --- DÒNG DỮ LIỆU (CELLS) --- */
+.table-row-cell, .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-data;
+    -fx-padding: 6px;
+    -fx-border-color: transparent transparent rgba(144, 224, 239, 0.3) transparent; /* Kẻ ngang mờ */
+    
+    /* ANIMATION QUAN TRỌNG: Màu nền chuyển đổi mượt mà trong 0.4s */
+    /* Giúp mắt cảm thấy dễ chịu khi dữ liệu cập nhật liên tục */
+    /* Lưu ý: JavaFX CSS chuẩn hỗ trợ transition nhưng hạn chế, đây là nỗ lực tốt nhất */
+}
+
+.table-row-cell:odd, .list-cell:odd {
+    -fx-background-color: rgba(202, 240, 248, 0.2); /* Dòng lẻ hơi xanh */
+}
+
+/* HIỆU ỨNG KHI ĐƯỢC CHỌN (NƯỚC ĐI MỚI NHẤT) */
+.table-row-cell:selected, .list-cell:selected {
+    -fx-background-color: -fx-neon-cyan; /* Nền xanh Cyan nổi bật */
+    -fx-text-fill: white;
+    -fx-background-insets: 0 5 0 5; /* Thụt vào một chút cho đẹp */
+    -fx-background-radius: 4px;
+    
+    /* Hiệu ứng phát sáng (Glow) quanh dòng được chọn */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 180, 216, 0.6), 8, 0, 0, 0);
+}
+
+/* HIỆU ỨNG RÊ CHUỘT */
+.table-row-cell:hover, .list-cell:hover {
+    -fx-background-color: rgba(0, 180, 216, 0.1);
+    -fx-cursor: hand;
+    -fx-border-color: -fx-neon-cyan; /* Hiện khung viền khi rê qua */
+    -fx-border-radius: 4px;
+}
+
+/* === THANH TRẠNG THÁI (STATUS BAR) === */
+.tool-bar:bottom {
+    -fx-background-color: #caf0f8;
+    -fx-border-color: -fx-neon-cyan transparent transparent transparent;
+    -fx-border-width: 2px;
+}
+.tool-bar:bottom .label {
+    -fx-text-fill: -fx-neon-blue;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,255,255,0.8), 2, 0, 0, 0);
+}
+
+/* === TAB PANE === */
+.tab-pane {
+    -fx-padding: 5px;
+}
+.tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+.tab {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 3px 0;
+    -fx-border-color: transparent;
+    -fx-padding: 8px 20px;
+}
+.tab:selected {
+    -fx-border-color: -fx-neon-cyan; /* Gạch chân phát sáng */
+    -fx-background-color: rgba(255,255,255,0.5);
+}
+.tab .tab-label {
+    -fx-text-fill: #888;
+    -fx-font-weight: bold;
+}
+.tab:selected .tab-label {
+    -fx-text-fill: -fx-neon-cyan;
+    -fx-effect: dropshadow(gaussian, rgba(0, 180, 216, 0.4), 5, 0, 0, 0);
+}
+
+/* === SCROLL BAR (Thanh cuộn trong suốt) === */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #a0c4ff;
+    -fx-background-radius: 10px;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: -fx-neon-cyan;
+    -fx-effect: dropshadow(three-pass-box, -fx-neon-cyan, 5, 0, 0, 0);
+}
+
+/* === COMBO BOX === */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: -fx-tech-border;
+    -fx-border-radius: 4px;
+}
+.combo-box:hover {
+    -fx-border-color: -fx-neon-cyan;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 180, 216, 0.3), 5, 0, 0, 0);
+}

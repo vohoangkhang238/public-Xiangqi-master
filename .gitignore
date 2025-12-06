@@ -1,0 +1,45 @@
+# Maven / Java
+/target/
+*.class
+*.log
+*.jar
+*.war
+*.ear
+
+# IDEs
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+/out/
+
+# Temporary files
+*.swp
+*.tmp
+
+# IntelliJ
+/.idea/
+*.iws
+
+# Eclipse
+/.metadata/
+bin/
+
+# NetBeans
+nbproject/private/
+
+# Logs
+logs/
+*.log
+
+# Others
+*.class
+*.cache
