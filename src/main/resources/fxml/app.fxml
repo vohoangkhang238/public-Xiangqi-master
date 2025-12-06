@@ -130,7 +130,7 @@
             </ToolBar>
          </top>
          <center>
-            <SplitPane fx:id="splitPane" dividerPositions="0.6" orientation="VERTICAL" BorderPane.alignment="CENTER">
+            <SplitPane fx:id="splitPane" dividerPositions="0.55" orientation="VERTICAL" BorderPane.alignment="CENTER">
               <items>
                 
                 <AnchorPane fx:id="canvasPane" minHeight="0.0" minWidth="0.0">
@@ -153,71 +153,37 @@
 
                 <AnchorPane minHeight="0.0" minWidth="0.0">
                      <children>
-                        <SplitPane fx:id="splitPane2" dividerPositions="0.5" orientation="HORIZONTAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <items>
-                             
-                             <AnchorPane minHeight="0.0" minWidth="0.0">
-                                 <children>
-                                   <TabPane side="BOTTOM" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <tabs>
-                                         <Tab text="History">
-                                             <content>
-                                                 <BorderPane>
-                                                   <center>
-                                                       <TableView fx:id="recordTable" onMouseClicked="#recordTableClick" BorderPane.alignment="CENTER">
-                                                        <columns>
-                                                           <TableColumn editable="false" prefWidth="60.0" sortable="false" text="#" />
-                                                          <TableColumn editable="false" prefWidth="120.0" sortable="false" text="Move" />
-                                                            <TableColumn editable="false" prefWidth="90.0" sortable="false" text="Score" />
-                                                        </columns>
-                                                      </TableView>
-                                                   </center>
-                                                   <bottom>
-                                                      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" BorderPane.alignment="CENTER">
-                                                        <items>
-                                                           <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#finalButtonClick" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('/image/arrow-double-left.png');" text="End" />
-                                                            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#forwardButtonClick" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('/image/arrow-left.png');" text="Prev" />
-                                                            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#backButtonClick" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('/image/arrow-right.png');" text="Next" />
-                                                            <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#frontButtonClick" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('/image/arrow-double-right.png');" text="Start" />
-                                                        </items>
-                                                      </ToolBar>
-                                                   </bottom>
-                                                 </BorderPane>
-                                             </content>
-                                        </Tab>
-                                         <Tab text="Analysis">
-                                             <content>
-                                              <BorderPane fx:id="charPane" />
-                                             </content>
-                                         </Tab>
-                                        <Tab text="Book">
-                                          <content>
-                                                <BorderPane>
-                                                   <center>
-                                                      <TableView fx:id="bookTable" onMouseClicked="#bookTableClick" BorderPane.alignment="CENTER">
-                                                        <columns>
-                                                           <TableColumn editable="false" prefWidth="75.0" sortable="false" text="Move" />
-                                                          <TableColumn editable="false" prefWidth="64.0" sortable="false" text="Score" />
-                                                            <TableColumn editable="false" prefWidth="64.0" sortable="false" text="Win%" />
-                                                             <TableColumn editable="false" prefWidth="60.0" sortable="false" text="W" />
-                                                            <TableColumn editable="false" prefWidth="60.0" sortable="false" text="D" />
-                                                             <TableColumn editable="false" prefWidth="60.0" sortable="false" text="L" />
-                                                            <TableColumn editable="false" prefWidth="75.0" sortable="false" text="Note" />
-                                                            <TableColumn editable="false" sortable="false" text="Source" />
-                                                         </columns>
-                                                      </TableView>
-                                                   </center>
-                                                </BorderPane>
-                                           </content>
-                                        </Tab>
-                                      </tabs>
-                                    </TabPane>
-                                 </children>
-                            </AnchorPane>
-
-                            <AnchorPane minHeight="0.0" minWidth="0.0">
-                                 <children>
-                                    <BorderPane fx:id="listViewPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                       <TabPane side="BOTTOM" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <tabs>
+                             <Tab text="History">
+                                 <content>
+                                     <BorderPane>
+                                       <center>
+                                           <TableView fx:id="recordTable" onMouseClicked="#recordTableClick" BorderPane.alignment="CENTER">
+                                            <columns>
+                                               <TableColumn editable="false" prefWidth="60.0" sortable="false" text="#" />
+                                              <TableColumn editable="false" prefWidth="120.0" sortable="false" text="Move" />
+                                                <TableColumn editable="false" prefWidth="90.0" sortable="false" text="Score" />
+                                            </columns>
+                                          </TableView>
+                                       </center>
+                                       <bottom>
+                                          <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" BorderPane.alignment="CENTER">
+                                            <items>
+                                               <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#finalButtonClick" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('/image/arrow-double-left.png');" text="End" />
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#forwardButtonClick" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('/image/arrow-left.png');" text="Prev" />
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#backButtonClick" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('/image/arrow-right.png');" text="Next" />
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#frontButtonClick" prefHeight="24.0" prefWidth="24.0" style="-fx-background-image: url('/image/arrow-double-right.png');" text="Start" />
+                                            </items>
+                                          </ToolBar>
+                                       </bottom>
+                                     </BorderPane>
+                                 </content>
+                            </Tab>
+                            
+                            <Tab text="Engine Info">
+                                <content>
+                                    <BorderPane fx:id="listViewPane">
                                        <center>
                                           <ListView fx:id="listView" BorderPane.alignment="CENTER" />
                                        </center>
@@ -233,11 +199,37 @@
                                            </ToolBar>
                                        </top>
                                     </BorderPane>
-                                 </children>
-                             </AnchorPane>
+                                </content>
+                            </Tab>
 
-                          </items>
-                        </SplitPane>
+                             <Tab text="Chart">
+                                 <content>
+                                  <BorderPane fx:id="charPane" />
+                                 </content>
+                             </Tab>
+                             
+                            <Tab text="Open Book">
+                              <content>
+                                    <BorderPane>
+                                       <center>
+                                          <TableView fx:id="bookTable" onMouseClicked="#bookTableClick" BorderPane.alignment="CENTER">
+                                            <columns>
+                                               <TableColumn editable="false" prefWidth="75.0" sortable="false" text="Move" />
+                                              <TableColumn editable="false" prefWidth="64.0" sortable="false" text="Score" />
+                                                <TableColumn editable="false" prefWidth="64.0" sortable="false" text="Win%" />
+                                                 <TableColumn editable="false" prefWidth="60.0" sortable="false" text="W" />
+                                                <TableColumn editable="false" prefWidth="60.0" sortable="false" text="D" />
+                                                 <TableColumn editable="false" prefWidth="60.0" sortable="false" text="L" />
+                                                <TableColumn editable="false" prefWidth="75.0" sortable="false" text="Note" />
+                                                <TableColumn editable="false" sortable="false" text="Source" />
+                                             </columns>
+                                          </TableView>
+                                       </center>
+                                    </BorderPane>
+                               </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
                      </children>
                   </AnchorPane>
               </items>
