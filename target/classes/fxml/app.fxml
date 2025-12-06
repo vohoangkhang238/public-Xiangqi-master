@@ -22,7 +22,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="borderPane" minHeight="600.0" minWidth="900.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: -fx-base-color;" stylesheets="@../style/app.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sojourners.chess.controller.Controller">
+<BorderPane fx:id="borderPane" minHeight="600.0" minWidth="500.0" prefHeight="950.0" prefWidth="600.0" style="-fx-background-color: -fx-base-color;" stylesheets="@../style/app.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sojourners.chess.controller.Controller">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -130,8 +130,9 @@
             </ToolBar>
          </top>
          <center>
-            <SplitPane fx:id="splitPane" dividerPositions="0.64" BorderPane.alignment="CENTER">
+            <SplitPane fx:id="splitPane" dividerPositions="0.6" orientation="VERTICAL" BorderPane.alignment="CENTER">
               <items>
+                
                 <AnchorPane fx:id="canvasPane" minHeight="0.0" minWidth="0.0">
                    <children>
                         <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -149,9 +150,10 @@
                         </BorderPane>
                      </children>
                   </AnchorPane>
+
                 <AnchorPane minHeight="0.0" minWidth="0.0">
                      <children>
-                        <SplitPane fx:id="splitPane2" dividerPositions="0.4" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <SplitPane fx:id="splitPane2" dividerPositions="0.5" orientation="HORIZONTAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <items>
                              
                              <AnchorPane minHeight="0.0" minWidth="0.0">
