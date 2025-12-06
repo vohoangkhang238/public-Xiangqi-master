@@ -781,7 +781,7 @@ public class Controller implements EngineCallBack, LinkerCallBack {
         borderPane.setPrefWidth(prop.getStageWidth());
         borderPane.setPrefHeight(prop.getStageHeight());
         splitPane.setDividerPosition(0, prop.getSplitPos());
-        // [ĐÃ XÓA] splitPane2
+        // [ĐÃ SỬA] Bỏ dòng lưu splitPos2 (vì đã xóa biến này)
         menuOfTopWindow.setSelected(prop.isTopWindow());
         App.topWindow(prop.isTopWindow());
     }
@@ -1188,7 +1188,7 @@ public class Controller implements EngineCallBack, LinkerCallBack {
         prop.setStageWidth(borderPane.getWidth());
         prop.setStageHeight(borderPane.getHeight());
         prop.setSplitPos(splitPane.getDividerPositions()[0]);
-        // [ĐÃ XÓA] Lưu splitPos2
+        // [ĐÃ SỬA] Bỏ dòng lưu splitPos2 (vì đã xóa biến này)
         prop.save();
         Platform.exit();
     }
@@ -1252,4 +1252,5 @@ public class Controller implements EngineCallBack, LinkerCallBack {
             engineGo();
         }
     }
+}
 }

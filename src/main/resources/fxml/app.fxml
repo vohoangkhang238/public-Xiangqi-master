@@ -201,7 +201,7 @@
                                  </content>
                              </Tab>
                              
-                            <Tab text="Book">
+                            <Tab text="Open Book">
                               <content>
                                     <BorderPane>
                                        <center>
